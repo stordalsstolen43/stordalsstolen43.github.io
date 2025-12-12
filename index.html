@@ -8,23 +8,129 @@ header:
 
 <div class="row t30">
 	<div class="medium-12 columns">
-		<div style="text-align: center; padding: 60px 20px;">
-			<h1>Stordalsstølen 43</h1>
-			<p class="subheadline">Privat hytte i Høyanger Kommune</p>
-			
-			<div style="margin: 40px 0;">
-				<a href="/no.html" class="button">Norsk</a>
-				<a href="/en.html" class="button">English</a>
-				<a href="/de.html" class="button">Deutsch</a>
-				<a href="/fr.html" class="button">Français</a>
-			</div>
-			
-			<p style="font-size: 1.3em; line-height: 1.8; margin-top: 30px;">
+		<div style="padding: 40px 20px; text-align: center;">
+			<p style="font-size: 1.3em; line-height: 1.8; margin-bottom: 30px;">
 				Velkommen til vår private hytte i det rolige, landlige området Stordalstølen, Høyanger Kommune, Norge.
 			</p>
-			<p style="color: #95a5a6; margin-top: 20px;">
+			<p style="color: #95a5a6; margin-bottom: 40px;">
 				Stordalsstølen 43, Høyanger, Norge
 			</p>
+			
+			<div style="margin: 40px 0;">
+				<a href="https://www.novasol.no/feriehus/stordalenbjordal-n21955?adult=2&child=0&pets=0&range=3&accommodationType=novasol_cottages&index=search&features=&page=1&sort=recommended&salesMarket=578&displayMode=LIST&ne=60.9622931201749%2C+5.707677100299686&sw=60.955303730027836%2C+5.6884939414251745&regionName=Kartomr%C3%A5de&start=10-01-2026&nights=7&pdp_share=dc_lpmfe-88ed1edf-43b5-47fe-bda7-d40304df24d2" 
+				   class="button large" 
+				   style="font-size: 1.5em; padding: 20px 40px; background-color: #667eea; border-color: #667eea; color: white; text-decoration: none; display: inline-block; border-radius: 10px; box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4); transition: all 0.3s ease;"
+				   onmouseover="this.style.backgroundColor='#764ba2'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(102, 126, 234, 0.6)';"
+				   onmouseout="this.style.backgroundColor='#667eea'; this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(102, 126, 234, 0.4)';">
+					📅 Book
+				</a>
+			</div>
+			
+			<div class="slides-preview" style="margin: 40px 0;">
+				<h3 style="text-align: center; margin-bottom: 20px; font-size: 1.2em; color: #34495e;">Bilder fra hytten</h3>
+				<div id="slideshow-container" style="max-width: 800px; margin: 0 auto; position: relative;">
+					<div id="slideshow-image-container" style="position: relative; width: 100%; height: 500px; overflow: hidden; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+						<img id="slideshow-image" src="" alt="Stordalsstølen 43" style="width: 100%; height: 100%; object-fit: cover; display: none;">
+					</div>
+					<div style="text-align: center; margin-top: 15px;">
+						<button id="slideshow-prev" style="background-color: #667eea; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin: 0 5px;">← Forrige</button>
+						<span id="slideshow-counter" style="margin: 0 15px; color: #34495e; font-weight: bold;">1 / 34</span>
+						<button id="slideshow-next" style="background-color: #667eea; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin: 0 5px;">Neste →</button>
+					</div>
+					<div style="text-align: center; margin-top: 20px;">
+						<a href="/gallery.html" class="button" style="background-color: #667eea; border-color: #667eea; color: white;">
+							Se alle bilder →
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<script>
+			(function() {
+				var imageFiles = [
+					"20241010_223820.jpg", "20241011_083836.jpg", "20241011_083856.jpg", "20241011_091221.jpg",
+					"20241011_091225.jpg", "20241011_091319.jpg", "20241011_091353.jpg", "20241011_091514.jpg",
+					"20241011_093652.jpg", "20241011_093718.jpg", "20241011_093744.jpg", "20241011_093831.jpg",
+					"20241011_094044.jpg", "20241011_094054.jpg", "20241011_094126.jpg", "20241011_094159.jpg",
+					"20241011_094219.jpg", "20241011_094229.jpg", "20241011_095223.jpg", "20241011_095239.jpg",
+					"20241011_095307.jpg", "20241011_110947.jpg", "20241011_111003.jpg", "20241011_111013.jpg",
+					"20241011_111033.jpg", "20241011_111045.jpg", "20241011_111101.jpg", "20241011_111134.jpg",
+					"20241011_111148.jpg", "20251008_111247.jpg", "20251008_113652.jpg", "20251008_113706.jpg",
+					"20251008_121741.jpg", "20251008_143101.jpg"
+				];
+				
+				var currentIndex = 0;
+				var imageUrl = '{{ site.baseurl }}/images/slides/';
+				var slideshowImage = document.getElementById('slideshow-image');
+				var counter = document.getElementById('slideshow-counter');
+				var prevBtn = document.getElementById('slideshow-prev');
+				var nextBtn = document.getElementById('slideshow-next');
+				
+				function showImage(index) {
+					if (index < 0) index = imageFiles.length - 1;
+					if (index >= imageFiles.length) index = 0;
+					currentIndex = index;
+					
+					var img = new Image();
+					img.onload = function() {
+						slideshowImage.src = imageUrl + imageFiles[currentIndex];
+						slideshowImage.style.display = 'block';
+						slideshowImage.style.opacity = '0';
+						setTimeout(function() {
+							slideshowImage.style.transition = 'opacity 0.5s ease-in-out';
+							slideshowImage.style.opacity = '1';
+						}, 10);
+					};
+					img.src = imageUrl + imageFiles[currentIndex];
+					
+					counter.textContent = (currentIndex + 1) + ' / ' + imageFiles.length;
+				}
+				
+				function nextImage() {
+					showImage(currentIndex + 1);
+				}
+				
+				function prevImage() {
+					showImage(currentIndex - 1);
+				}
+				
+				if (prevBtn) prevBtn.addEventListener('click', prevImage);
+				if (nextBtn) nextBtn.addEventListener('click', nextImage);
+				
+				// Keyboard navigation
+				document.addEventListener('keydown', function(e) {
+					if (e.key === 'ArrowLeft') prevImage();
+					if (e.key === 'ArrowRight') nextImage();
+				});
+				
+				// Auto-play (optional - can be removed if not wanted)
+				var autoPlayInterval;
+				function startAutoPlay() {
+					autoPlayInterval = setInterval(nextImage, 5000); // Change image every 5 seconds
+				}
+				function stopAutoPlay() {
+					if (autoPlayInterval) clearInterval(autoPlayInterval);
+				}
+				
+				// Start slideshow
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', function() {
+						showImage(0);
+						startAutoPlay();
+					});
+				} else {
+					showImage(0);
+					startAutoPlay();
+				}
+				
+				// Pause on hover
+				var container = document.getElementById('slideshow-container');
+				if (container) {
+					container.addEventListener('mouseenter', stopAutoPlay);
+					container.addEventListener('mouseleave', startAutoPlay);
+				}
+			})();
+			</script>
 		</div>
 	</div>
 </div>

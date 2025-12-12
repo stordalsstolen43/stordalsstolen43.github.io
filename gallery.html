@@ -1,0 +1,132 @@
+---
+layout: default
+title: Stordalsstølen 43 - Bildegalleri
+lang: no
+permalink: /gallery.html
+header:
+  image_fullwidth: cottage_winter.jpg
+format: page
+---
+
+<div class="row t30">
+	<div class="medium-12 columns">
+		<article>
+			<header>
+				<h1>Bildegalleri</h1>
+			</header>
+
+			<div class="row">
+				<div class="small-12 columns">
+					<ul class="inline-list">
+						<li><a href="/">← Hjem</a></li>
+						<li><a href="/no.html" class="active">Norsk</a></li>
+						<li><a href="/en.html">English</a></li>
+						<li><a href="/de.html">Deutsch</a></li>
+						<li><a href="/fr.html">Français</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div style="margin-top: 40px;">
+				<div id="gallery-slideshow-container" style="max-width: 1000px; margin: 0 auto; position: relative;">
+					<div id="gallery-slideshow-image-container" style="position: relative; width: 100%; height: 600px; overflow: hidden; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+						<img id="gallery-slideshow-image" src="" alt="Stordalsstølen 43" style="width: 100%; height: 100%; object-fit: cover; display: none;">
+					</div>
+					<div style="text-align: center; margin-top: 15px;">
+						<button id="gallery-slideshow-prev" style="background-color: #667eea; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin: 0 5px;">← Forrige</button>
+						<span id="gallery-slideshow-counter" style="margin: 0 15px; color: #34495e; font-weight: bold;">1 / 34</span>
+						<button id="gallery-slideshow-next" style="background-color: #667eea; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin: 0 5px;">Neste →</button>
+					</div>
+				</div>
+
+				<script>
+				(function() {
+					var imageFiles = [
+						"20241010_223820.jpg", "20241011_083836.jpg", "20241011_083856.jpg", "20241011_091221.jpg",
+						"20241011_091225.jpg", "20241011_091319.jpg", "20241011_091353.jpg", "20241011_091514.jpg",
+						"20241011_093652.jpg", "20241011_093718.jpg", "20241011_093744.jpg", "20241011_093831.jpg",
+						"20241011_094044.jpg", "20241011_094054.jpg", "20241011_094126.jpg", "20241011_094159.jpg",
+						"20241011_094219.jpg", "20241011_094229.jpg", "20241011_095223.jpg", "20241011_095239.jpg",
+						"20241011_095307.jpg", "20241011_110947.jpg", "20241011_111003.jpg", "20241011_111013.jpg",
+						"20241011_111033.jpg", "20241011_111045.jpg", "20241011_111101.jpg", "20241011_111134.jpg",
+						"20241011_111148.jpg", "20251008_111247.jpg", "20251008_113652.jpg", "20251008_113706.jpg",
+						"20251008_121741.jpg", "20251008_143101.jpg"
+					];
+					
+					var currentIndex = 0;
+					var imageUrl = '{{ site.baseurl }}/images/slides/';
+					var slideshowImage = document.getElementById('gallery-slideshow-image');
+					var counter = document.getElementById('gallery-slideshow-counter');
+					var prevBtn = document.getElementById('gallery-slideshow-prev');
+					var nextBtn = document.getElementById('gallery-slideshow-next');
+					
+					function showImage(index) {
+						if (index < 0) index = imageFiles.length - 1;
+						if (index >= imageFiles.length) index = 0;
+						currentIndex = index;
+						
+						var img = new Image();
+						img.onload = function() {
+							slideshowImage.src = imageUrl + imageFiles[currentIndex];
+							slideshowImage.style.display = 'block';
+							slideshowImage.style.opacity = '0';
+							setTimeout(function() {
+								slideshowImage.style.transition = 'opacity 0.5s ease-in-out';
+								slideshowImage.style.opacity = '1';
+							}, 10);
+						};
+						img.src = imageUrl + imageFiles[currentIndex];
+						
+						counter.textContent = (currentIndex + 1) + ' / ' + imageFiles.length;
+					}
+					
+					function nextImage() {
+						showImage(currentIndex + 1);
+					}
+					
+					function prevImage() {
+						showImage(currentIndex - 1);
+					}
+					
+					if (prevBtn) prevBtn.addEventListener('click', prevImage);
+					if (nextBtn) nextBtn.addEventListener('click', nextImage);
+					
+					// Keyboard navigation
+					document.addEventListener('keydown', function(e) {
+						if (e.key === 'ArrowLeft') prevImage();
+						if (e.key === 'ArrowRight') nextImage();
+					});
+					
+					// Auto-play (optional - can be removed if not wanted)
+					var autoPlayInterval;
+					function startAutoPlay() {
+						autoPlayInterval = setInterval(nextImage, 5000); // Change image every 5 seconds
+					}
+					function stopAutoPlay() {
+						if (autoPlayInterval) clearInterval(autoPlayInterval);
+					}
+					
+					// Start slideshow
+					if (document.readyState === 'loading') {
+						document.addEventListener('DOMContentLoaded', function() {
+							showImage(0);
+							startAutoPlay();
+						});
+					} else {
+						showImage(0);
+						startAutoPlay();
+					}
+					
+					// Pause on hover
+					var container = document.getElementById('gallery-slideshow-container');
+					if (container) {
+						container.addEventListener('mouseenter', stopAutoPlay);
+						container.addEventListener('mouseleave', startAutoPlay);
+					}
+				})();
+				</script>
+			</div>
+		</article>
+	</div>
+</div>
+

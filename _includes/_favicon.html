@@ -3,6 +3,8 @@
 *   More Information › https://mathiasbynens.be/notes/touch-icons
 *
 {% endcomment %}
+{% comment %} SVG Favicon (Modern browsers): {% endcomment %}
+	<link rel="icon" type="image/svg+xml" href="{{ "/favicon.svg" | absolute_url }}">
 {% comment %} Regular Old-Skool Favicon: {% endcomment %}
 	{% if site.favicon-32x32 %}<link rel="icon" sizes="32x32" href="{{ "/assets/img/" | absolute_url }}{{ site.favicon-32x32 }}">{% endif %}
 {% comment %} For Chrome for Android: {% endcomment %}

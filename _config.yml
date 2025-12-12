@@ -1,6 +1,6 @@
 # Jekyll configuration for GitHub Pages
 title: Stordalsstølen 43
-slogan: Gjestehåndbok for privat hytte
+slogan: Privat hytte i Høyanger Kommune
 description: Gjestehåndbok for privat hytte i Høyanger Kommune, Norge
 lang: no
 
@@ -26,7 +26,7 @@ markdown: kramdown
 permalink: /:categories/:title/
 highlight: rouge
 excerpt_separator: "<!--more-->"
-include: ['.htaccess']
+include: ['.htaccess', '.well-known']
 
 # Exclude files from processing
 exclude:
@@ -68,4 +68,4 @@ defaults:
 # SASS settings
 sass:
   sass_dir: _sass
-  style: :compressed
+  style: compressed

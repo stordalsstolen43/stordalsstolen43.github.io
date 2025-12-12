@@ -1,0 +1,60 @@
+{% comment %}
+*   Preview gallery for slides (shows first 6 images)
+*   Usage: {% include slides-preview %}
+{% endcomment %}
+<div class="slides-preview" style="margin: 40px 0;">
+	<h3 style="text-align: center; margin-bottom: 20px; font-size: 1.2em; color: #34495e;">Bilder fra hytten</h3>
+	<ul class="clearing-thumbs small-block-grid-2 medium-block-grid-3" data-clearing id="slides-preview-list">
+		<!-- Images will be loaded dynamically via JavaScript -->
+	</ul>
+	<div style="text-align: center; margin-top: 20px;">
+		<a href="/gallery.html" class="button" style="background-color: #667eea; border-color: #667eea; color: white;">
+			Se alle bilder →
+		</a>
+	</div>
+</div>
+
+<script>
+(function() {
+	var imageFiles = [
+		"20241010_223820.jpg", "20241011_083836.jpg", "20241011_083856.jpg", "20241011_091221.jpg",
+		"20241011_091225.jpg", "20241011_091319.jpg", "20241011_091353.jpg", "20241011_091514.jpg",
+		"20241011_093652.jpg", "20241011_093718.jpg", "20241011_093744.jpg", "20241011_093831.jpg",
+		"20241011_094044.jpg", "20241011_094054.jpg", "20241011_094126.jpg", "20241011_094159.jpg",
+		"20241011_094219.jpg", "20241011_094229.jpg", "20241011_095223.jpg", "20241011_095239.jpg",
+		"20241011_095307.jpg", "20241011_110947.jpg", "20241011_111003.jpg", "20241011_111013.jpg",
+		"20241011_111033.jpg", "20241011_111045.jpg", "20241011_111101.jpg", "20241011_111134.jpg",
+		"20241011_111148.jpg", "20251008_111247.jpg", "20251008_113652.jpg", "20251008_113706.jpg",
+		"20251008_121741.jpg", "20251008_143101.jpg"
+	];
+	
+	var previewList = document.getElementById('slides-preview-list');
+	if (previewList) {
+		var imageUrl = '{{ site.urlimg }}slides/';
+		var previewCount = Math.min(6, imageFiles.length);
+		for (var i = 0; i < previewCount; i++) {
+			var filename = imageFiles[i];
+			var li = document.createElement('li');
+			var a = document.createElement('a');
+			a.href = imageUrl + filename;
+			var img = document.createElement('img');
+			img.src = imageUrl + filename;
+			img.alt = 'Stordalsstølen 43 - ' + filename;
+			img.setAttribute('data-caption', 'Stordalsstølen 43');
+			a.appendChild(img);
+			li.appendChild(a);
+			previewList.appendChild(li);
+		}
+		
+		// Initialize Foundation Clearing after images are added
+		setTimeout(function() {
+			if (typeof jQuery !== 'undefined' && typeof Foundation !== 'undefined') {
+				jQuery(document).foundation('clearing', 'reflow');
+			} else if (typeof Foundation !== 'undefined' && Foundation.libs && Foundation.libs.clearing) {
+				Foundation.libs.clearing.reflow();
+			}
+		}, 100);
+	}
+})();
+</script>
+

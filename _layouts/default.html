@@ -15,7 +15,9 @@ layout: compress
 	{{ content }}
 
 	{% unless page.skip_boilerplate %}
+	{% comment %}
 	{% include _footer.html %}
+	{% endcomment %}
 	{% endunless %}
 
 	{% include _footer_scripts.html %}
