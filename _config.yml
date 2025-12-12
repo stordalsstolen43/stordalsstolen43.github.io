@@ -1,0 +1,20 @@
+# Jekyll configuration for GitHub Pages
+title: Stordalsstølen 43
+description: Gjestehåndbok for privat hytte i Høyanger Kommune, Norge
+lang: no
+
+# GitHub Pages settings
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+# Site settings
+baseurl: ""
+url: "https://stordalsstolen43.github.io"
+
