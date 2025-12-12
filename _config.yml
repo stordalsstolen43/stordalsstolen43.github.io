@@ -1,20 +1,71 @@
 # Jekyll configuration for GitHub Pages
 title: Stordalsstølen 43
+slogan: Gjestehåndbok for privat hytte
 description: Gjestehåndbok for privat hytte i Høyanger Kommune, Norge
 lang: no
 
-# GitHub Pages settings
+# This URL is the main address for absolute links. Don't include a slash at the end.
+url: "https://stordalsstolen43.github.io"
+baseurl: ""
+
+# This URL points directly to the images directory making
+# things easier to link to images in posts and templates. It needs a slash at the end.
+urlimg: 'https://stordalsstolen43.github.io/images/'
+
+# Logo size is 600x80 pixels
+logo: "logo.png"
+
+# Plugins
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-paginate
+
+# Theme works best with Kramdown
+markdown: kramdown
+permalink: /:categories/:title/
+highlight: rouge
+excerpt_separator: "<!--more-->"
+include: ['.htaccess']
 
 # Exclude files from processing
 exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
+  - .sass-cache
+  - vendor
 
-# Site settings
-baseurl: ""
-url: "https://stordalsstolen43.github.io"
+# The language setting is used in /includes/header.html for html-settings
+language: 'no'
 
+# Used › default.html front-matter and compress.html
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: all
+  profile: false
+  ignore:
+    envs: [development]
+
+# Default Settings
+defaults:
+  -
+    scope:
+      path: ''
+      type: 'pages'
+    values:
+      show_meta: false
+      comments: false
+  -
+    scope:
+      path: ''
+      type: 'posts'
+    values:
+      show_meta: true
+      comments: false
+
+# SASS settings
+sass:
+  sass_dir: _sass
+  style: :compressed

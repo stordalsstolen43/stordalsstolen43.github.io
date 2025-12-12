@@ -1,0 +1,20 @@
+- title: Hjem
+  url: "/"
+  side: left
+
+- title: Norsk
+  url: "/no.html"
+  side: right
+
+- title: English
+  url: "/en.html"
+  side: right
+
+- title: Deutsch
+  url: "/de.html"
+  side: right
+
+- title: Français
+  url: "/fr.html"
+  side: right
+
