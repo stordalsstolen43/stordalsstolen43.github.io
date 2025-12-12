@@ -39,7 +39,7 @@ format: page
 					</div>
 				</div>
 
-				<script>
+				<script type="text/javascript">
 				(function() {
 					var imageFiles = [
 						"20241010_223820.jpg", "20241011_083836.jpg", "20241011_083856.jpg", "20241011_091221.jpg",
@@ -52,19 +52,17 @@ format: page
 						"20241011_111148.jpg", "20251008_111247.jpg", "20251008_113652.jpg", "20251008_113706.jpg",
 						"20251008_121741.jpg", "20251008_143101.jpg"
 					];
-					
 					var currentIndex = 0;
-					var imageUrl = '{{ site.baseurl }}/images/slides/';
+					var baseUrl = '{{ site.baseurl }}';
+					var imageUrl = (baseUrl ? baseUrl : '') + '/images/slides/';
 					var slideshowImage = document.getElementById('gallery-slideshow-image');
 					var counter = document.getElementById('gallery-slideshow-counter');
 					var prevBtn = document.getElementById('gallery-slideshow-prev');
 					var nextBtn = document.getElementById('gallery-slideshow-next');
-					
 					function showImage(index) {
 						if (index < 0) index = imageFiles.length - 1;
 						if (index >= imageFiles.length) index = 0;
 						currentIndex = index;
-						
 						var img = new Image();
 						img.onload = function() {
 							slideshowImage.src = imageUrl + imageFiles[currentIndex];
@@ -76,37 +74,27 @@ format: page
 							}, 10);
 						};
 						img.src = imageUrl + imageFiles[currentIndex];
-						
 						counter.textContent = (currentIndex + 1) + ' / ' + imageFiles.length;
 					}
-					
 					function nextImage() {
 						showImage(currentIndex + 1);
 					}
-					
 					function prevImage() {
 						showImage(currentIndex - 1);
 					}
-					
 					if (prevBtn) prevBtn.addEventListener('click', prevImage);
 					if (nextBtn) nextBtn.addEventListener('click', nextImage);
-					
-					// Keyboard navigation
 					document.addEventListener('keydown', function(e) {
 						if (e.key === 'ArrowLeft') prevImage();
 						if (e.key === 'ArrowRight') nextImage();
 					});
-					
-					// Auto-play (optional - can be removed if not wanted)
 					var autoPlayInterval;
 					function startAutoPlay() {
-						autoPlayInterval = setInterval(nextImage, 5000); // Change image every 5 seconds
+						autoPlayInterval = setInterval(nextImage, 5000);
 					}
 					function stopAutoPlay() {
 						if (autoPlayInterval) clearInterval(autoPlayInterval);
 					}
-					
-					// Start slideshow
 					if (document.readyState === 'loading') {
 						document.addEventListener('DOMContentLoaded', function() {
 							showImage(0);
@@ -116,8 +104,6 @@ format: page
 						showImage(0);
 						startAutoPlay();
 					}
-					
-					// Pause on hover
 					var container = document.getElementById('gallery-slideshow-container');
 					if (container) {
 						container.addEventListener('mouseenter', stopAutoPlay);
