@@ -18,6 +18,15 @@ format: page
 			</header>
 
 			<div itemprop="articleSection">
+				<!-- Login Prompt (shown when not authenticated) -->
+				<div id="login-prompt" style="display: none;">
+					<h2>🔐 Contenu protégé</h2>
+					<p>Cette page contient le guide du visiteur et n'est disponible que pour les clients payants.</p>
+					<p>Veuillez vous connecter pour continuer.</p>
+				</div>
+
+				<!-- Protected Content (hidden by default, shown after login) -->
+				<div class="protected-content" style="display: none;">
 				<div class="row">
 					<div class="small-12 columns">
 						<ul class="inline-list">
@@ -196,6 +205,8 @@ format: page
         <h2>7. Support et demandes</h2>
         <p>Veuillez adresser toutes les questions concernant les paiements et les questions financières liées à votre réservation à votre agent de réservation. En tant que propriétaire du chalet, je serai heureux de vous aider avec toutes les questions pratiques ou problèmes concernant le chalet lui-même.</p>
     </section>
+				</div>
+				<!-- End of protected content -->
 			</div>
 		</article>
 	</div>

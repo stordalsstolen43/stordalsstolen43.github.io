@@ -18,6 +18,15 @@ format: page
 			</header>
 
 			<div itemprop="articleSection">
+				<!-- Login Prompt (shown when not authenticated) -->
+				<div id="login-prompt" style="display: none;">
+					<h2>🔐 Geschützter Inhalt</h2>
+					<p>Diese Seite enthält das Besucher-Handbuch und ist nur für zahlende Gäste verfügbar.</p>
+					<p>Bitte melden Sie sich an, um fortzufahren.</p>
+				</div>
+
+				<!-- Protected Content (hidden by default, shown after login) -->
+				<div class="protected-content" style="display: none;">
 				<div class="row">
 					<div class="small-12 columns">
 						<ul class="inline-list">
@@ -196,6 +205,8 @@ format: page
         <h2>7. Unterstützung und Anfragen</h2>
         <p>Bitte richten Sie alle Fragen bezüglich Zahlungen und finanziellen Angelegenheiten Ihrer Buchung an Ihren Buchungsagenten. Als Eigentümer des Ferienhauses helfe ich Ihnen gerne bei allen praktischen Fragen oder Problemen, die die Hütte selbst betreffen.</p>
     </section>
+				</div>
+				<!-- End of protected content -->
 			</div>
 		</article>
 	</div>

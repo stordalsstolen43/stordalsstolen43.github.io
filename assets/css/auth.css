@@ -1,0 +1,201 @@
+/* Authentication Modal Styles */
+
+.login-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    backdrop-filter: blur(5px);
+}
+
+.login-modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    max-width: 450px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-header h2 {
+    color: #34495e;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+.login-header p {
+    color: #7f8c8d;
+    font-size: 1em;
+}
+
+.login-form {
+    margin: 20px 0;
+}
+
+.login-input-group {
+    margin-bottom: 20px;
+}
+
+.login-input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #34495e;
+    font-weight: 600;
+    font-size: 0.95em;
+}
+
+.login-input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.login-input-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.login-button {
+    width: 100%;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.login-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+.login-error {
+    background-color: #fee;
+    color: #c33;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #fcc;
+    font-size: 0.9em;
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.login-footer a {
+    color: #667eea;
+    text-decoration: none;
+    font-size: 0.95em;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Shake animation for error */
+.login-form.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+    20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+/* Login prompt (shown when not authenticated) */
+#login-prompt {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 10px;
+    margin: 40px 0;
+}
+
+#login-prompt h2 {
+    color: #34495e;
+    margin-bottom: 15px;
+}
+
+#login-prompt p {
+    color: #7f8c8d;
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+/* Protected content (hidden by default) */
+.protected-content {
+    display: none;
+}
+
+/* Logout button */
+.logout-button {
+    background-color: #95a5a6 !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    font-size: 0.95em !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.logout-button:hover {
+    background-color: #7f8c8d !important;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+    .login-modal-content {
+        padding: 30px 20px;
+        width: 95%;
+    }
+    
+    .login-header h2 {
+        font-size: 1.5em;
+    }
+}
+

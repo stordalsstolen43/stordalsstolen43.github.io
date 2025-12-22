@@ -18,6 +18,15 @@ format: page
 			</header>
 
 			<div itemprop="articleSection">
+				<!-- Login Prompt (shown when not authenticated) -->
+				<div id="login-prompt" style="display: none;">
+					<h2>🔐 Beskyttet Innhold</h2>
+					<p>Denne siden inneholder gjestehåndboken og er kun tilgjengelig for betalende gjester.</p>
+					<p>Vennligst logg inn for å fortsette.</p>
+				</div>
+
+				<!-- Protected Content (hidden by default, shown after login) -->
+				<div class="protected-content" style="display: none;">
 				<div class="row">
 					<div class="small-12 columns">
 						<ul class="inline-list">
@@ -196,6 +205,8 @@ format: page
 					<h2>7. Støtte og henvendelser</h2>
 					<p>Vennligst send alle spørsmål om betalinger og økonomiske forhold vedrørende din booking til din bookingagent. Som eier av hytten hjelper jeg gjerne med alle praktiske spørsmål eller problemer som gjelder hytta selv.</p>
 				</section>
+				</div>
+				<!-- End of protected content -->
 			</div>
 		</article>
 	</div>

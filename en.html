@@ -18,6 +18,15 @@ format: page
 			</header>
 
 			<div itemprop="articleSection">
+				<!-- Login Prompt (shown when not authenticated) -->
+				<div id="login-prompt" style="display: none;">
+					<h2>🔐 Protected Content</h2>
+					<p>This page contains the visitor guidebook and is only available to paying guests.</p>
+					<p>Please log in to continue.</p>
+				</div>
+
+				<!-- Protected Content (hidden by default, shown after login) -->
+				<div class="protected-content" style="display: none;">
 				<div class="row">
 					<div class="small-12 columns">
 						<ul class="inline-list">
@@ -196,6 +205,8 @@ format: page
         <h2>7. Support and Enquiries</h2>
         <p>Please direct any questions regarding payment and financial matters related to your booking to your booking agent. As the owner of the cottage, I will be happy to assist you with any practical issues or questions you may have concerning the cottage itself.</p>
     </section>
+				</div>
+				<!-- End of protected content -->
 			</div>
 		</article>
 	</div>
